@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search Papers - Decision Tree Journal</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-container">
+    <div class="logo-box">
+      <img src="images/logo.png" class="logo">
+    </div>
+    <div>
+      <h1>Decision Tree Journal</h1>
+      <p>Knowledge Transactions on Applied Machine Learning</p>
+    </div>
+  </div>
+</header>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+
+<a href="index.html">Home</a>
+
+<div class="dropdown">
+  <a href="#">Journal ▾</a>
+  <div class="dropdown-content">
+    <a href="index.html">Current Issue</a>
+    <a href="archives.html">Archives</a>
+    <a href="editorial.html">Editorial Board</a>
+  </div>
+</div>
+
+<a href="search.html" class="active">Search</a>
+<a href="submit.html">Submit Paper</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<!-- ===== SEARCH SECTION ===== -->
+<main class="container">
+
+<h2>Search Papers</h2>
+
+<input type="text" id="searchInput" placeholder="Search papers..." onkeyup="searchPapers()">
+
+<select id="filterCategory" onchange="filterPapers()">
+  <option value="all">All Categories</option>
+  <option value="ml">Machine Learning</option>
+  <option value="ai">Artificial Intelligence</option>
+  <option value="ds">Data Science</option>
+</select>
+
+<br><br>
+
+<!-- ===== PAPERS ===== -->
+
+<div class="paper" data-category="ml">
+<h2 class="paper-title">
+  <a href="paper1.html">Machine Learning for Solar Optimization</a>
+</h2>
+
+<div class="meta">
+Authors: John Doe | DOI: 10.1000/ktj.001
+</div>
+
+<div class="abstract">
+This paper explores machine learning models for optimizing solar energy systems.
+</div>
+
+<a href="paper1.html">
+<button>View Paper</button>
+</a>
+</div>
+
+<div class="paper" data-category="ai">
+<h2 class="paper-title">
+  <a href="#">AI in Healthcare Prediction</a>
+</h2>
+
+<div class="meta">
+Authors: Jane Smith
+</div>
+
+<div class="abstract">
+AI models for predicting diseases and improving healthcare outcomes.
+</div>
+
+<button>Coming Soon</button>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+© 2026 Decision Tree Journal | All Rights Reserved
+</footer>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+function searchPapers() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let papers = document.getElementsByClassName("paper");
+
+  for (let i = 0; i < papers.length; i++) {
+    let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
+
+    if (title.includes(input)) {
+      papers[i].style.display = "block";
+    } else {
+      papers[i].style.display = "none";
+    }
+  }
+}
+
+function filterPapers() {
+  let category = document.getElementById("filterCategory").value;
+  let papers = document.getElementsByClassName("paper");
+
+  for (let i = 0; i < papers.length; i++) {
+    let paperCategory = papers[i].getAttribute("data-category");
+
+    if (category === "all" || category === paperCategory) {
+      papers[i].style.display = "block";
+    } else {
+      papers[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+:root {
+  --primary: #154c8a;   /* Logo Blue */
+  --secondary: #0f2f5c; /* Dark Blue */
+  --accent: #e63946;    /* Red */
+  --background: #f9fbfd;
+  --text: #333;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: 'Segoe UI', Arial;
+  margin: 0;
+  background: linear-gradient(to bottom, #f9fbfd, #eef3f9);
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #154c8a, #1f5fa8);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 70px;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background: white;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 10px;
+  font-weight: 600;
+  padding: 6px 12px;
+}
+
+/* Active & Hover */
+nav a.active,
+nav a:hover {
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== PAPER CARD ===== */
+.paper {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  border-left: 5px solid var(--accent);
+}
+
+.paper h2 {
+  margin-top: 0;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 5px;
+}
+
+/* ===== META ===== */
+.meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.abstract {
+  margin: 10px 0;
+}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--secondary);
+}
+
+/* ===== CARD (Paper Page) ===== */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  margin-top: 30px;
+}
+
+/* Logo container (IMPORTANT FIX) */
+.logo-box {
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Improve logo size */
+.logo {
+  width: 60px;
+}
+
+/* Better header alignment */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #154c8a, #1f5fa8);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.feature-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 50px 20px;
+  background: #eef3f9;
+  margin-top: 30px;
+}
+
+/* Search Bar */
+#searchInput {
+  width: 60%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Dropdown */
+#filterCategory {
+  padding: 10px;
+  border-radius: 6px;
+}
