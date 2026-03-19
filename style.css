@@ -23,23 +23,33 @@ a:hover {
   color: var(--accent);
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER FIX ===== */
 header {
-  background: linear-gradient(135deg, #154c8a, #1f5fa8);
+  background: var(--primary);
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 12px 15px; /* reduced from 20px */
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px; /* reduced gap */
+  flex-wrap: wrap; /* important for mobile */
 }
 
 .logo {
-  width: 70px;
+  width: 50px; /* smaller */
+}
+
+header h1 {
+  font-size: 20px; /* smaller */
+  margin: 0;
+}
+
+header p {
+  font-size: 12px;
+  margin: 0;
 }
 
 /* ===== NAVBAR ===== */
@@ -185,7 +195,7 @@ footer {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 15px;
   background: linear-gradient(135deg, #154c8a, #1f5fa8);
   color: white;
 }
@@ -237,4 +247,61 @@ footer {
 #filterCategory {
   padding: 10px;
   border-radius: 6px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 45px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  header p {
+    font-size: 11px;
+  }
+
+  /* Navbar */
+  nav {
+    font-size: 14px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  /* Features (THIS FIXES CRUMBLE) */
+  .features {
+    flex-direction: column;
+  }
+
+  /* Search inputs */
+  #searchInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #filterCategory {
+    width: 100%;
+  }
+
+  /* Hero */
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
 }
