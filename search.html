@@ -28,16 +28,22 @@
 <nav>
   <div class="nav-container">
 
+    <!-- Hamburger -->
     <div class="menu-toggle" onclick="toggleMenu()">
       &#9776;
     </div>
 
+    <!-- Links -->
     <div class="nav-links" id="navLinks">
 
       <a href="index.html">Home</a>
 
+      <!-- DROPDOWN FIXED -->
       <div class="dropdown">
-        <a href="#">Journal ▾</a>
+        <a href="#" onclick="toggleDropdown(event)">
+          Journal ▼
+        </a>
+
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
           <a href="archives.html">Archives</a>
@@ -79,13 +85,12 @@
 
 <br>
 
-<!-- NO RESULT MESSAGE -->
+<!-- NO RESULT -->
 <p id="noResults" style="display:none; text-align:center; color:#777;">
 No papers found.
 </p>
 
-<!-- ===== PAPERS ===== -->
-
+<!-- PAPERS -->
 <div class="paper" data-category="ml">
 <h2 class="paper-title">
   <a href="paper1.html">Machine Learning for Solar Optimization</a>
@@ -130,48 +135,64 @@ AI models for predicting diseases and improving healthcare outcomes.
 <!-- ===== SCRIPT ===== -->
 <script>
 
-/* WAIT FOR PAGE LOAD */
-document.addEventListener("DOMContentLoaded", function () {
+/* HAMBURGER */
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
 
-  /* HAMBURGER */
-  window.toggleMenu = function () {
-    let menu = document.getElementById("navLinks");
-    menu.classList.toggle("show");
-  };
+/* DROPDOWN CLICK */
+function toggleDropdown(event) {
+  event.preventDefault();
 
-  /* SEARCH + FILTER */
-  function applyFilters() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let category = document.getElementById("filterCategory").value;
-    let papers = document.getElementsByClassName("paper");
-    let visibleCount = 0;
+  let content = event.target.nextElementSibling;
 
-    for (let i = 0; i < papers.length; i++) {
+  /* Close other dropdowns */
+  document.querySelectorAll(".dropdown-content").forEach(el => {
+    if (el !== content) el.classList.remove("show-dropdown");
+  });
 
-      let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
-      let paperCategory = papers[i].getAttribute("data-category");
+  content.classList.toggle("show-dropdown");
+}
 
-      let matchSearch = title.includes(input);
-      let matchCategory = (category === "all" || category === paperCategory);
+/* CLOSE DROPDOWN WHEN CLICK OUTSIDE */
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach(el => {
+      el.classList.remove("show-dropdown");
+    });
+  }
+});
 
-      if (matchSearch && matchCategory) {
-        papers[i].style.display = "block";
-        visibleCount++;
-      } else {
-        papers[i].style.display = "none";
-      }
+/* SEARCH + FILTER */
+function applyFilters() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let category = document.getElementById("filterCategory").value;
+  let papers = document.getElementsByClassName("paper");
+  let visibleCount = 0;
+
+  for (let paper of papers) {
+    let title = paper.querySelector(".paper-title").innerText.toLowerCase();
+    let paperCategory = paper.getAttribute("data-category");
+
+    let matchSearch = title.includes(input);
+    let matchCategory = (category === "all" || category === paperCategory);
+
+    if (matchSearch && matchCategory) {
+      paper.style.display = "block";
+      visibleCount++;
+    } else {
+      paper.style.display = "none";
     }
-
-    /* Show "No Results" */
-    document.getElementById("noResults").style.display = 
-      visibleCount === 0 ? "block" : "none";
   }
 
-  /* EVENTS */
-  document.getElementById("searchInput").addEventListener("keyup", applyFilters);
-  document.getElementById("filterCategory").addEventListener("change", applyFilters);
+  document.getElementById("noResults").style.display =
+    visibleCount === 0 ? "block" : "none";
+}
 
-});
+/* EVENTS */
+document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+document.getElementById("filterCategory").addEventListener("change", applyFilters);
+
 </script>
 
 </body>

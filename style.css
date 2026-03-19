@@ -70,7 +70,6 @@ nav {
   z-index: 1000;
 }
 
-/* NAV STRUCTURE */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -80,6 +79,7 @@ nav {
 /* NAV LINKS */
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -90,15 +90,30 @@ nav {
   cursor: pointer;
 }
 
-/* NAV LINKS STYLE */
+/* NAV LINK STYLE */
 .nav-links a {
   font-weight: 600;
   padding: 6px 12px;
 }
 
-/* Active + Hover */
+/* ACTIVE + HOVER */
 .nav-links a.active,
 .nav-links a:hover {
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+}
+
+/* ===== FIX JOURNAL BUTTON ===== */
+.dropdown > a {
+  font-weight: 600;
+  padding: 6px 12px;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.dropdown > a:hover,
+.dropdown > a.active {
   background: var(--primary);
   color: white;
   border-radius: 6px;
@@ -109,6 +124,7 @@ nav {
   position: relative;
 }
 
+/* Hidden initially */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -116,15 +132,32 @@ nav {
   min-width: 160px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 6px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
 }
 
+/* Dropdown links */
 .dropdown-content a {
   display: block;
   padding: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+/* Desktop hover */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile click */
+.dropdown-content.show-dropdown {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== CONTAINER ===== */
@@ -258,13 +291,14 @@ footer {
     display: flex;
   }
 
-  /* Dropdown mobile fix */
+  /* Dropdown mobile */
   .dropdown-content {
     position: static;
+    width: 100%;
     box-shadow: none;
   }
 
-  /* Features fix */
+  /* Features */
   .features {
     flex-direction: column;
   }
@@ -279,7 +313,7 @@ footer {
   }
 }
 
-/* SEARCH BOX */
+/* ===== SEARCH BOX ===== */
 .search-box {
   display: flex;
   gap: 10px;
@@ -297,4 +331,3 @@ footer {
   padding: 10px;
   border-radius: 6px;
 }
-

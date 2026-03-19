@@ -39,10 +39,14 @@
     <!-- Links -->
     <div class="nav-links" id="navLinks">
 
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
 
+      <!-- DROPDOWN -->
       <div class="dropdown">
-        <a href="#">Journal ▾</a>
+        <a href="#" onclick="toggleDropdown(event)">
+          Journal ▼
+        </a>
+
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
           <a href="archives.html">Archives</a>
@@ -51,7 +55,7 @@
       </div>
 
       <a href="search.html">Search</a>
-      <a href="submit.html" class="active">Submit Paper</a>
+      <a href="submit.html">Submit Paper</a>
       <a href="contact.html">Contact</a>
 
     </div>
@@ -103,10 +107,23 @@ Accepted format: PDF | Max file size: 50MB
 
 <!-- ===== SCRIPT ===== -->
 <script>
+
+/* HAMBURGER MENU */
 function toggleMenu() {
   let menu = document.getElementById("navLinks");
   menu.classList.toggle("show");
 }
+
+/* DROPDOWN CLICK (MOBILE) */
+function toggleDropdown(event) {
+  event.preventDefault();
+
+  let dropdown = event.target.parentElement;
+  let content = dropdown.querySelector(".dropdown-content");
+
+  content.classList.toggle("show-dropdown");
+}
+
 </script>
 
 </body>
