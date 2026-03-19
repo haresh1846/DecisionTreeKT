@@ -4,49 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact - Decision Tree Journal</title>
-
+<title>Submit Paper - Decision Tree Journal</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
-
     <div class="logo-box">
       <img src="images/logo.png" class="logo" alt="Decision Tree Logo">
     </div>
-
     <div>
       <h1>Decision Tree Journal</h1>
       <p>Knowledge Transactions on Applied Machine Learning</p>
     </div>
-
   </div>
 </header>
 
-<!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-container">
 
-    <!-- Hamburger -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-      &#9776;
-    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 
-    <!-- Links -->
     <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
 
-      <a href="index.html" class="active">Home</a>
-
-      <!-- DROPDOWN -->
       <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(event)">
-          Journal ▼
-        </a>
-
+        <a href="#" onclick="toggleDropdown(event)">Journal ▼</a>
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
           <a href="archives.html">Archives</a>
@@ -55,72 +40,74 @@
       </div>
 
       <a href="search.html">Search</a>
-      <a href="submit.html">Submit Paper</a>
+      <a href="submit.html" class="active">Submit Paper</a>
       <a href="contact.html">Contact</a>
-
     </div>
 
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
-  <h2>Contact Us</h2>
-  <p>We are here to assist you with your queries.</p>
+  <h2>Submit Your Research Paper</h2>
+  <p>Share your work with the global academic community.</p>
 </section>
 
-<!-- ===== MAIN ===== -->
 <main class="container">
 
 <div class="card" style="text-align:center;">
 
-<h2>Get in Touch</h2>
+<h2>Paper Submission</h2>
 
 <p>
-For any queries related to submissions, publications, or collaborations,
-please contact us via email.
+Submit your research paper for peer review.<br>
+You will be redirected to our secure submission form.
 </p>
 
 <br>
 
-<p style="font-size:18px;">
-📧 <b>suport@decisiontreekt.com</b>
-</p>
+<a href="https://forms.gle/QyFgtyEdti2gjGoY9">
+  <button style="font-size:16px; padding:12px 20px;">
+    Submit Paper
+  </button>
+</a>
 
-<br>
+<br><br>
 
 <p style="font-size:14px; color:#666;">
-We usually respond within 24–48 hours.
+Accepted format: PDF | Max file size: 50MB
 </p>
 
 </div>
 
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer>
 © 2026 Decision Tree Journal | All Rights Reserved
 </footer>
 
-<!-- ===== SCRIPT ===== -->
 <script>
-
-/* HAMBURGER MENU */
 function toggleMenu() {
-  let menu = document.getElementById("navLinks");
-  menu.classList.toggle("show");
+  document.getElementById("navLinks").classList.toggle("show");
 }
 
-/* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
   event.preventDefault();
+  let content = event.target.nextElementSibling;
 
-  let dropdown = event.target.parentElement;
-  let content = dropdown.querySelector(".dropdown-content");
+  document.querySelectorAll(".dropdown-content").forEach(el => {
+    if (el !== content) el.classList.remove("show-dropdown");
+  });
 
   content.classList.toggle("show-dropdown");
 }
 
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach(el => {
+      el.classList.remove("show-dropdown");
+    });
+  }
+});
 </script>
 
 </body>
