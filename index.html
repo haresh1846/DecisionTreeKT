@@ -25,30 +25,42 @@
   </div>
 </header>
 
-<!-- ===== NAVBAR ===== -->
+<!-- ===== NAVBAR (UPDATED) ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html" class="active">Home</a>
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <!-- Links -->
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html" class="active">Home</a>
+
+      <div class="dropdown">
+        <a href="#">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html">Search</a>
+      <a href="submit.html">Submit Paper</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
 <!-- ===== MAIN CONTENT ===== -->
 <main>
 
-<!-- ===== HERO SECTION ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <h2>Advancing Research in Machine Learning</h2>
   <p>Publish high-quality research papers in AI, Data Science, and Applied Machine Learning.</p>
@@ -119,6 +131,14 @@ This paper explores machine learning models for optimizing solar energy systems.
 <footer>
 © 2026 Decision Tree Journal | All Rights Reserved
 </footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function toggleMenu() {
+  let menu = document.getElementById("navLinks");
+  menu.classList.toggle("show");
+}
+</script>
 
 </body>
 </html>

@@ -15,7 +15,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo">
+      <img src="images/logo.png" class="logo" alt="Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -24,41 +24,54 @@
   </div>
 </header>
 
-<!-- ===== NAVBAR ===== -->
+<!-- ===== NAVBAR (UPDATED) ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html">Home</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="#">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html" class="active">Search</a>
+      <a href="submit.html">Submit Paper</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html" class="active">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
-<!-- ===== SEARCH SECTION ===== -->
+<!-- ===== MAIN ===== -->
 <main class="container">
 
 <h2>Search Papers</h2>
 
-<input type="text" id="searchInput" placeholder="Search papers..." onkeyup="searchPapers()">
+<!-- SEARCH BOX -->
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search papers...">
+  
+  <select id="filterCategory">
+    <option value="all">All Categories</option>
+    <option value="ml">Machine Learning</option>
+    <option value="ai">Artificial Intelligence</option>
+    <option value="ds">Data Science</option>
+  </select>
+</div>
 
-<select id="filterCategory" onchange="filterPapers()">
-  <option value="all">All Categories</option>
-  <option value="ml">Machine Learning</option>
-  <option value="ai">Artificial Intelligence</option>
-  <option value="ds">Data Science</option>
-</select>
-
-<br><br>
+<br>
 
 <!-- ===== PAPERS ===== -->
 
@@ -105,35 +118,39 @@ AI models for predicting diseases and improving healthcare outcomes.
 
 <!-- ===== SCRIPT ===== -->
 <script>
-function searchPapers() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let papers = document.getElementsByClassName("paper");
 
-  for (let i = 0; i < papers.length; i++) {
-    let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
-
-    if (title.includes(input)) {
-      papers[i].style.display = "block";
-    } else {
-      papers[i].style.display = "none";
-    }
-  }
+/* HAMBURGER */
+function toggleMenu() {
+  let menu = document.getElementById("navLinks");
+  menu.classList.toggle("show");
 }
 
-function filterPapers() {
+/* SEARCH + FILTER COMBINED */
+function applyFilters() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
   let category = document.getElementById("filterCategory").value;
   let papers = document.getElementsByClassName("paper");
 
   for (let i = 0; i < papers.length; i++) {
+
+    let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
     let paperCategory = papers[i].getAttribute("data-category");
 
-    if (category === "all" || category === paperCategory) {
+    let matchSearch = title.includes(input);
+    let matchCategory = (category === "all" || category === paperCategory);
+
+    if (matchSearch && matchCategory) {
       papers[i].style.display = "block";
     } else {
       papers[i].style.display = "none";
     }
   }
 }
+
+/* EVENTS */
+document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+document.getElementById("filterCategory").addEventListener("change", applyFilters);
+
 </script>
 
 </body>

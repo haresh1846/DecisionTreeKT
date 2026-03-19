@@ -1,7 +1,7 @@
 :root {
-  --primary: #154c8a;   /* Logo Blue */
-  --secondary: #0f2f5c; /* Dark Blue */
-  --accent: #e63946;    /* Red */
+  --primary: #154c8a;
+  --secondary: #0f2f5c;
+  --accent: #e63946;
   --background: #f9fbfd;
   --text: #333;
 }
@@ -23,27 +23,33 @@ a:hover {
   color: var(--accent);
 }
 
-/* ===== HEADER FIX ===== */
+/* ===== HEADER ===== */
 header {
   background: var(--primary);
   color: white;
-  padding: 12px 15px; /* reduced from 20px */
+  padding: 10px 15px;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* reduced gap */
-  flex-wrap: wrap; /* important for mobile */
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo-box {
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
 }
 
 .logo {
-  width: 50px; /* smaller */
+  width: 50px;
 }
 
 header h1 {
-  font-size: 20px; /* smaller */
+  font-size: 20px;
   margin: 0;
 }
 
@@ -55,8 +61,7 @@ header p {
 /* ===== NAVBAR ===== */
 nav {
   background: white;
-  padding: 12px;
-  text-align: center;
+  padding: 10px 15px;
   border-bottom: 2px solid var(--primary);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
@@ -65,15 +70,35 @@ nav {
   z-index: 1000;
 }
 
-nav a {
-  margin: 10px;
+/* NAV STRUCTURE */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* NAV LINKS STYLE */
+.nav-links a {
   font-weight: 600;
   padding: 6px 12px;
 }
 
-/* Active & Hover */
-nav a.active,
-nav a:hover {
+/* Active + Hover */
+.nav-links a.active,
+.nav-links a:hover {
   background: var(--primary);
   color: white;
   border-radius: 6px;
@@ -81,7 +106,6 @@ nav a:hover {
 
 /* ===== DROPDOWN ===== */
 .dropdown {
-  display: inline-block;
   position: relative;
 }
 
@@ -97,7 +121,6 @@ nav a:hover {
 .dropdown-content a {
   display: block;
   padding: 10px;
-  text-align: left;
 }
 
 .dropdown:hover .dropdown-content {
@@ -111,7 +134,7 @@ nav a:hover {
   padding: 20px;
 }
 
-/* ===== PAPER CARD ===== */
+/* ===== PAPER ===== */
 .paper {
   background: white;
   padding: 20px;
@@ -128,11 +151,10 @@ nav a:hover {
   padding-bottom: 5px;
 }
 
-/* ===== META ===== */
+/* ===== TEXT ===== */
 .meta {
   font-size: 14px;
   color: #666;
-  margin-bottom: 10px;
 }
 
 .abstract {
@@ -153,46 +175,7 @@ button:hover {
   background: var(--secondary);
 }
 
-/* ===== CARD (Paper Page) ===== */
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 12px;
-  margin-top: 30px;
-}
-
-/* Logo container (IMPORTANT FIX) */
-.logo-box {
-  background: white;
-  padding: 8px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-}
-
-/* Improve logo size */
-.logo {
-  width: 60px;
-}
-
-/* Better header alignment */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-/* HERO */
+/* ===== HERO ===== */
 .hero {
   text-align: center;
   padding: 40px 15px;
@@ -200,20 +183,10 @@ footer {
   color: white;
 }
 
-.hero h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  margin-bottom: 20px;
-}
-
-/* FEATURES */
+/* ===== FEATURES ===== */
 .features {
   display: flex;
   gap: 20px;
-  justify-content: space-between;
   margin-top: 30px;
 }
 
@@ -226,30 +199,23 @@ footer {
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
-/* CTA */
+/* ===== CTA ===== */
 .cta {
   text-align: center;
   padding: 50px 20px;
   background: #eef3f9;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 12px;
   margin-top: 30px;
 }
 
-/* Search Bar */
-#searchInput {
-  width: 60%;
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* Dropdown */
-#filterCategory {
-  padding: 10px;
-  border-radius: 6px;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
   /* Header */
@@ -270,29 +236,37 @@ footer {
     font-size: 11px;
   }
 
-  /* Navbar */
-  nav {
-    font-size: 14px;
+  /* NAV */
+  .menu-toggle {
+    display: block;
   }
 
-  nav a {
-    display: inline-block;
-    margin: 5px;
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    margin-top: 10px;
   }
 
-  /* Features (THIS FIXES CRUMBLE) */
+  .nav-links a {
+    padding: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Dropdown mobile fix */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+  }
+
+  /* Features fix */
   .features {
     flex-direction: column;
-  }
-
-  /* Search inputs */
-  #searchInput {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  #filterCategory {
-    width: 100%;
   }
 
   /* Hero */
@@ -303,5 +277,23 @@ footer {
   .hero p {
     font-size: 14px;
   }
+}
 
+/* SEARCH BOX */
+.search-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-box select {
+  padding: 10px;
+  border-radius: 6px;
 }
