@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Paper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paper - Decision Tree Journal</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
 
@@ -22,43 +27,70 @@
   </div>
 </header>
 
+<!-- ===== NAVBAR (FIXED) ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html" class="active">Home</a>
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <!-- Links -->
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="#">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html">Search</a>
+      <a href="submit.html">Submit Paper</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
-<div class="container">
+<!-- ===== MAIN ===== -->
+<main class="container">
+
 <div class="card">
 
 <h1>Machine Learning for Solar Optimization</h1>
-<div class="meta">Authors: John Doe | DOI: 10.1000/ktj.001</div>
+
+<div class="meta">
+Authors: John Doe | DOI: 10.1000/ktj.001
+</div>
 
 <h3>Abstract</h3>
-<p>This paper explores advanced ML models for solar optimization.</p>
+<p>
+This paper explores advanced machine learning models for optimizing solar energy systems and improving efficiency.
+</p>
+
+<br>
 
 <a href="papers/paper-001.pdf" target="_blank">
 <button>Download Full Paper</button>
 </a>
 
 </div>
-</div>
 
-<footer>© 2026 Knowledge Transactions Journal</footer>
+</main>
 
+<!-- ===== FOOTER ===== -->
+<footer>
+© 2026 Decision Tree Journal | All Rights Reserved
+</footer>
+
+<!-- ===== SCRIPT ===== -->
 <script>
 function toggleMenu() {
   let menu = document.getElementById("navLinks");

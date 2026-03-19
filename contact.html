@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact - Decision Tree Journal</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
 
@@ -22,29 +27,76 @@
   </div>
 </header>
 
+<!-- ===== NAVBAR ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html" class="active">Home</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="#">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html">Search</a>
+      <a href="submit.html">Submit Paper</a>
+      <a href="contact.html" class="active">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
-<div class="container" style="text-align:center;">
-<p>Email: yourjournal@email.com</p>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h2>Contact Us</h2>
+  <p>We are here to assist you with your queries.</p>
+</section>
+
+<!-- ===== MAIN ===== -->
+<main class="container">
+
+<div class="card" style="text-align:center;">
+
+<h2>Get in Touch</h2>
+
+<p>
+For any queries related to submissions, publications, or collaborations,
+please contact us via email.
+</p>
+
+<br>
+
+<p style="font-size:18px;">
+📧 <b>yourjournal@email.com</b>
+</p>
+
+<br>
+
+<p style="font-size:14px; color:#666;">
+We usually respond within 24–48 hours.
+</p>
+
 </div>
 
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+© 2026 Decision Tree Journal | All Rights Reserved
+</footer>
+
+<!-- ===== SCRIPT ===== -->
 <script>
 function toggleMenu() {
   let menu = document.getElementById("navLinks");

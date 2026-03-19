@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Submit Paper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Submit Paper - Decision Tree Journal</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
 
@@ -22,37 +27,81 @@
   </div>
 </header>
 
+<!-- ===== NAVBAR ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html" class="active">Home</a>
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <!-- Links -->
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="#">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html">Search</a>
+      <a href="submit.html" class="active">Submit Paper</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h2>Submit Your Research Paper</h2>
+  <p>Share your work with the global academic community.</p>
+</section>
 
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
 
-<div class="container" style="text-align:center;">
+<div class="card" style="text-align:center;">
 
-<p>Submit your original research for peer review</p>
+<h2>Paper Submission</h2>
 
-<a href="https://forms.gle/1WnPTHXjxyaBrHc5A" target="_blank">
-<button>Submit Paper</button>
+<p>
+Submit your original research paper for peer review and publication.<br>
+You will be redirected to our secure submission form.
+</p>
+
+<br>
+
+<!-- GOOGLE FORM BUTTON -->
+<a href="https://forms.gle/QyFgtyEdti2gjGoY9">
+  <button style="font-size:16px; padding:12px 20px;">
+    Submit Paper
+  </button>
 </a>
+
+<br><br>
+
+<p style="font-size:14px; color:#666;">
+Accepted format: PDF | Max file size: 50MB
+</p>
 
 </div>
 
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+© 2026 Decision Tree Journal | All Rights Reserved
+</footer>
+
+<!-- ===== SCRIPT ===== -->
 <script>
 function toggleMenu() {
   let menu = document.getElementById("navLinks");

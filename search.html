@@ -24,7 +24,7 @@
   </div>
 </header>
 
-<!-- ===== NAVBAR (UPDATED) ===== -->
+<!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-container">
 
@@ -54,6 +54,12 @@
   </div>
 </nav>
 
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h2>Search Research Papers</h2>
+  <p>Find papers by title and category.</p>
+</section>
+
 <!-- ===== MAIN ===== -->
 <main class="container">
 
@@ -72,6 +78,11 @@
 </div>
 
 <br>
+
+<!-- NO RESULT MESSAGE -->
+<p id="noResults" style="display:none; text-align:center; color:#777;">
+No papers found.
+</p>
 
 <!-- ===== PAPERS ===== -->
 
@@ -119,38 +130,48 @@ AI models for predicting diseases and improving healthcare outcomes.
 <!-- ===== SCRIPT ===== -->
 <script>
 
-/* HAMBURGER */
-function toggleMenu() {
-  let menu = document.getElementById("navLinks");
-  menu.classList.toggle("show");
-}
+/* WAIT FOR PAGE LOAD */
+document.addEventListener("DOMContentLoaded", function () {
 
-/* SEARCH + FILTER COMBINED */
-function applyFilters() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let category = document.getElementById("filterCategory").value;
-  let papers = document.getElementsByClassName("paper");
+  /* HAMBURGER */
+  window.toggleMenu = function () {
+    let menu = document.getElementById("navLinks");
+    menu.classList.toggle("show");
+  };
 
-  for (let i = 0; i < papers.length; i++) {
+  /* SEARCH + FILTER */
+  function applyFilters() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let category = document.getElementById("filterCategory").value;
+    let papers = document.getElementsByClassName("paper");
+    let visibleCount = 0;
 
-    let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
-    let paperCategory = papers[i].getAttribute("data-category");
+    for (let i = 0; i < papers.length; i++) {
 
-    let matchSearch = title.includes(input);
-    let matchCategory = (category === "all" || category === paperCategory);
+      let title = papers[i].getElementsByClassName("paper-title")[0].innerText.toLowerCase();
+      let paperCategory = papers[i].getAttribute("data-category");
 
-    if (matchSearch && matchCategory) {
-      papers[i].style.display = "block";
-    } else {
-      papers[i].style.display = "none";
+      let matchSearch = title.includes(input);
+      let matchCategory = (category === "all" || category === paperCategory);
+
+      if (matchSearch && matchCategory) {
+        papers[i].style.display = "block";
+        visibleCount++;
+      } else {
+        papers[i].style.display = "none";
+      }
     }
+
+    /* Show "No Results" */
+    document.getElementById("noResults").style.display = 
+      visibleCount === 0 ? "block" : "none";
   }
-}
 
-/* EVENTS */
-document.getElementById("searchInput").addEventListener("keyup", applyFilters);
-document.getElementById("filterCategory").addEventListener("change", applyFilters);
+  /* EVENTS */
+  document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+  document.getElementById("filterCategory").addEventListener("change", applyFilters);
 
+});
 </script>
 
 </body>

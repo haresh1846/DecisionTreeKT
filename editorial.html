@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Editorial Board - Decision Tree Journal</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo">
+      <img src="images/logo.png" class="logo" alt="Decision Tree Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -21,25 +24,39 @@
   </div>
 </header>
 
+<!-- ===== NAVBAR (FIXED) ===== -->
 <nav>
+  <div class="nav-container">
 
-<a href="index.html" class="active">Home</a>
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      &#9776;
+    </div>
 
-<div class="dropdown">
-  <a href="#">Journal ▾</a>
-  <div class="dropdown-content">
-    <a href="index.html">Current Issue</a>
-    <a href="archives.html">Archives</a>
-    <a href="editorial.html">Editorial Board</a>
+    <!-- Links -->
+    <div class="nav-links" id="navLinks">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <a href="#" class="active">Journal ▾</a>
+        <div class="dropdown-content">
+          <a href="index.html">Current Issue</a>
+          <a href="archives.html">Archives</a>
+          <a href="editorial.html">Editorial Board</a>
+        </div>
+      </div>
+
+      <a href="search.html">Search</a>
+      <a href="submit.html">Submit Paper</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
   </div>
-</div>
-
-<a href="search.html">Search</a>
-<a href="submit.html">Submit Paper</a>
-<a href="contact.html">Contact</a>
-
 </nav>
 
+<!-- ===== MAIN ===== -->
 <main class="container">
 
 <h2>Editorial Board</h2>
@@ -47,17 +64,21 @@
 <!-- Editor -->
 <div class="card">
 <h3>Editor-in-Chief</h3>
-<p><b>Dr. John Doe</b><br>
+<p>
+<b>Dr. John Doe</b><br>
 Professor, Machine Learning<br>
-XYZ University</p>
+XYZ University
+</p>
 </div>
 
 <!-- Associate Editor -->
 <div class="card">
 <h3>Associate Editor</h3>
-<p><b>Dr. Jane Smith</b><br>
+<p>
+<b>Dr. Jane Smith</b><br>
 Data Science Department<br>
-ABC Institute</p>
+ABC Institute
+</p>
 </div>
 
 <!-- Reviewers -->
@@ -72,10 +93,12 @@ ABC Institute</p>
 
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer>
 © 2026 Decision Tree Journal | All Rights Reserved
 </footer>
 
+<!-- ===== SCRIPT ===== -->
 <script>
 function toggleMenu() {
   let menu = document.getElementById("navLinks");
