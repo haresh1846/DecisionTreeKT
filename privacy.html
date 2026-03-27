@@ -8,12 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <div class="card">
-      <h1 class="page-title">Privacy Policy</h1>
-      <p>We collect only necessary information for communication, submission handling, and editorial workflows. Personal information is not sold to third parties.</p>
-      <p>By using this site, you agree to reasonable processing of data needed to provide journal services.</p>
-    </div>
-  </main>
+<header>
+  <div class="header-container">
+    <div class="logo-box"><img src="images/logo.png" class="logo" alt="Decision Tree Logo"></div>
+    <div><h1>Decision Tree Journal</h1><p>Knowledge Transactions on Applied Machine Learning</p></div>
+  </div>
+</header>
+<section class="utility-bar"><div class="utility-container"><span class="utility-item"><span class="utility-dot"></span>Email: support@decisiontreekt.com</span><span class="utility-item"><span class="utility-dot"></span>Next Submission Deadline: 30 June 2026</span><span class="utility-item"><span class="utility-dot"></span>Call for Papers: AI for Sustainable Systems</span></div></section>
+<nav><div class="nav-container"><button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">&#9776;</button><div class="nav-links" id="navLinks"><a href="index.html">Home</a><div class="dropdown"><button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">Journal ▼</button><div class="dropdown-content"><a href="index.html">Current Issue</a><a href="archives.html">Archives</a><a href="editorial.html">Editorial Board</a></div></div><a href="search.html">Search</a><a href="submit.html" class="nav-cta">Submit Paper</a><a href="contact.html">Contact</a></div></div></nav>
+<section class="publication-strip"><div class="publication-badges"><span>ISSN: 2583-0000 (Online)</span><span>DOI Prefix: 10.1000/ktj</span><span>Open Access Journal</span></div></section>
+<section class="breadcrumb-wrap" aria-label="Breadcrumb"><nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Privacy Policy</span></nav></section>
+<main class="container">
+  <div class="card">
+    <h1 class="page-title">Privacy Policy</h1>
+    <p>We collect only necessary information for communication, submission handling, and editorial workflows. Personal information is not sold to third parties.</p>
+    <p>By using this site, you agree to reasonable processing of data needed to provide journal services.</p>
+  </div>
+</main>
+<footer><div class="footer-links"><a href="about.html">About Journal</a><a href="ethics.html">Publication Ethics</a><a href="open-access.html">Open Access Policy</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div><p class="footer-copy">© 2026 Decision Tree Journal | All Rights Reserved</p></footer>
+<script>
+function toggleMenu() { let menu = document.getElementById("navLinks"); menu.classList.toggle("show"); let btn = document.querySelector(".menu-toggle"); btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false"); }
+function toggleDropdown(event) { let content = event.currentTarget.nextElementSibling; let toggle = event.currentTarget; document.querySelectorAll(".dropdown-content").forEach(el => { if (el !== content) el.classList.remove("show-dropdown"); }); document.querySelectorAll(".dropdown-toggle").forEach(btn => { if (btn !== toggle) btn.setAttribute("aria-expanded", "false"); }); content.classList.toggle("show-dropdown"); toggle.setAttribute("aria-expanded", content.classList.contains("show-dropdown") ? "true" : "false"); }
+document.addEventListener("click", function(e) { if (!e.target.closest(".dropdown")) { document.querySelectorAll(".dropdown-content").forEach(el => { el.classList.remove("show-dropdown"); }); document.querySelectorAll(".dropdown-toggle").forEach(btn => { btn.setAttribute("aria-expanded", "false"); }); } });
+</script>
 </body>
 </html>

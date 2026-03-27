@@ -142,16 +142,25 @@ nav {
   color: var(--text);
   padding: 6px 10px;
   border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
 }
 
 .nav-links a,
-.dropdown > a {
+.dropdown > a,
+.dropdown-toggle {
   color: #1e293b;
   font-weight: 600;
   font-size: 0.94rem;
   padding: 8px 12px;
   border-radius: 10px;
   transition: all 0.2s ease;
+}
+
+.dropdown-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .nav-links a.nav-cta {
@@ -169,9 +178,19 @@ nav {
 .nav-links a.active,
 .nav-links a:hover,
 .dropdown > a:hover,
-.dropdown > a.active {
+.dropdown > a.active,
+.dropdown-toggle:hover,
+.dropdown-toggle.active {
   background: #eaf2ff;
   color: var(--primary-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+.dropdown-toggle:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .dropdown {
@@ -672,7 +691,8 @@ footer {
   }
 
   .nav-links a,
-  .dropdown > a {
+  .dropdown > a,
+  .dropdown-toggle {
     padding: 10px 12px;
   }
 

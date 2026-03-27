@@ -38,9 +38,9 @@
   <div class="nav-container">
 
     <!-- Hamburger -->
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">
       &#9776;
-    </div>
+    </button>
 
     <!-- Links -->
     <div class="nav-links" id="navLinks">
@@ -49,9 +49,9 @@
 
       <!-- DROPDOWN -->
       <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(event)">
+        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">
           Journal ▼
-        </a>
+        </button>
 
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
@@ -141,22 +141,31 @@ ABC Institute
 function toggleMenu() {
   let menu = document.getElementById("navLinks");
   menu.classList.toggle("show");
+  let btn = document.querySelector(".menu-toggle");
+  btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
 }
 
 /* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
-  event.preventDefault();
   let content = event.currentTarget.nextElementSibling;
+  let toggle = event.currentTarget;
   document.querySelectorAll(".dropdown-content").forEach(el => {
     if (el !== content) el.classList.remove("show-dropdown");
   });
+  document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+    if (btn !== toggle) btn.setAttribute("aria-expanded", "false");
+  });
   content.classList.toggle("show-dropdown");
+  toggle.setAttribute("aria-expanded", content.classList.contains("show-dropdown") ? "true" : "false");
 }
 
 document.addEventListener("click", function(e) {
   if (!e.target.closest(".dropdown")) {
     document.querySelectorAll(".dropdown-content").forEach(el => {
       el.classList.remove("show-dropdown");
+    });
+    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
     });
   }
 });

@@ -34,13 +34,13 @@
 <nav>
   <div class="nav-container">
 
-    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
 
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(event)">Journal ▼</a>
+        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">Journal ▼</button>
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
           <a href="archives.html">Archives</a>
@@ -116,24 +116,34 @@ We respond within 24–48 hours.
 
 <script>
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("show");
+  let menu = document.getElementById("navLinks");
+  menu.classList.toggle("show");
+  let btn = document.querySelector(".menu-toggle");
+  btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
 }
 
 function toggleDropdown(event) {
-  event.preventDefault();
   let content = event.currentTarget.nextElementSibling;
+  let toggle = event.currentTarget;
 
   document.querySelectorAll(".dropdown-content").forEach(el => {
     if (el !== content) el.classList.remove("show-dropdown");
   });
+  document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+    if (btn !== toggle) btn.setAttribute("aria-expanded", "false");
+  });
 
   content.classList.toggle("show-dropdown");
+  toggle.setAttribute("aria-expanded", content.classList.contains("show-dropdown") ? "true" : "false");
 }
 
 document.addEventListener("click", function(e) {
   if (!e.target.closest(".dropdown")) {
     document.querySelectorAll(".dropdown-content").forEach(el => {
       el.classList.remove("show-dropdown");
+    });
+    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
     });
   }
 });
