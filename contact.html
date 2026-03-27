@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Contact - Decision Tree Journal</title>
+<meta name="description" content="Contact Decision Tree Journal for submission and publication queries.">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,7 +14,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo" alt="Decision Tree Logo">
+      <img src="images/logo.svg" class="logo" alt="Decision Tree Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -54,7 +55,7 @@
 
 <main class="container">
 
-<div class="card" style="text-align:center;">
+<div class="card center">
 
 <h2>Get in Touch</h2>
 
@@ -89,7 +90,7 @@ function toggleMenu() {
 
 function toggleDropdown(event) {
   event.preventDefault();
-  let content = event.target.nextElementSibling;
+  let content = event.currentTarget.nextElementSibling;
 
   document.querySelectorAll(".dropdown-content").forEach(el => {
     if (el !== content) el.classList.remove("show-dropdown");

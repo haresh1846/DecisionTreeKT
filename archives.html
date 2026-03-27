@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Archives - Decision Tree Journal</title>
+<meta name="description" content="Browse past volumes and issues published by Decision Tree Journal.">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +16,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo" alt="Decision Tree Logo">
+      <img src="images/logo.svg" class="logo" alt="Decision Tree Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -36,7 +37,7 @@
     <!-- Links -->
     <div class="nav-links" id="navLinks">
 
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
 
       <!-- DROPDOWN -->
       <div class="dropdown">
@@ -46,7 +47,7 @@
 
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
-          <a href="archives.html">Archives</a>
+          <a href="archives.html" class="active">Archives</a>
           <a href="editorial.html">Editorial Board</a>
         </div>
       </div>
@@ -114,12 +115,20 @@ function toggleMenu() {
 /* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
   event.preventDefault();
-
-  let dropdown = event.target.parentElement;
-  let content = dropdown.querySelector(".dropdown-content");
-
+  let content = event.currentTarget.nextElementSibling;
+  document.querySelectorAll(".dropdown-content").forEach(el => {
+    if (el !== content) el.classList.remove("show-dropdown");
+  });
   content.classList.toggle("show-dropdown");
 }
+
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach(el => {
+      el.classList.remove("show-dropdown");
+    });
+  }
+});
 
 </script>
 </body>

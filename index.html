@@ -16,7 +16,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo" alt="Logo">
+      <img src="images/logo.svg" class="logo" alt="Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -69,9 +69,7 @@
   <h2>Advancing Research in Machine Learning</h2>
   <p>Publish high-quality research papers in AI, Data Science, and Applied Machine Learning.</p>
 
-  <a href="submit.html">
-    <button>Submit Your Paper</button>
-  </a>
+  <a href="submit.html" class="btn">Submit Your Paper</a>
 </section>
 
 <!-- FEATURES -->
@@ -112,9 +110,7 @@ Authors: John Doe | DOI: 10.1000/ktj.001
 This paper explores machine learning models for optimizing solar energy systems.
 </div>
 
-<a href="paper1.html">
-<button>View Paper</button>
-</a>
+<a href="paper1.html" class="btn">View Paper</a>
 </div>
 
 </section>
@@ -124,9 +120,7 @@ This paper explores machine learning models for optimizing solar energy systems.
   <h2>Ready to Publish Your Research?</h2>
   <p>Submit your paper today and get published in our journal.</p>
 
-  <a href="submit.html">
-    <button>Submit Now</button>
-  </a>
+  <a href="submit.html" class="btn">Submit Now</a>
 </section>
 
 </main>
@@ -148,12 +142,20 @@ function toggleMenu() {
 /* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
   event.preventDefault();
-
-  let dropdown = event.target.parentElement;
-  let content = dropdown.querySelector(".dropdown-content");
-
+  let content = event.currentTarget.nextElementSibling;
+  document.querySelectorAll(".dropdown-content").forEach(el => {
+    if (el !== content) el.classList.remove("show-dropdown");
+  });
   content.classList.toggle("show-dropdown");
 }
+
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach(el => {
+      el.classList.remove("show-dropdown");
+    });
+  }
+});
 
 </script>
 

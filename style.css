@@ -208,6 +208,23 @@ button:hover {
   background: var(--secondary);
 }
 
+/* Reusable button-like links */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: white;
+}
+
 /* ===== HERO ===== */
 .hero {
   text-align: center;
@@ -330,4 +347,17 @@ footer {
 .search-box select {
   padding: 10px;
   border-radius: 6px;
+}
+
+/* Shared card block used on multiple pages */
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card.center {
+  text-align: center;
 }

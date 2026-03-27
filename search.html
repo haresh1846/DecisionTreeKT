@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Search Papers - Decision Tree Journal</title>
+<meta name="description" content="Search Decision Tree Journal papers by title and research category.">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +16,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo" alt="Logo">
+      <img src="images/logo.svg" class="logo" alt="Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -104,9 +105,7 @@ Authors: John Doe | DOI: 10.1000/ktj.001
 This paper explores machine learning models for optimizing solar energy systems.
 </div>
 
-<a href="paper1.html">
-<button>View Paper</button>
-</a>
+<a href="paper1.html" class="btn">View Paper</a>
 </div>
 
 <div class="paper" data-category="ai">
@@ -143,8 +142,7 @@ function toggleMenu() {
 /* DROPDOWN CLICK */
 function toggleDropdown(event) {
   event.preventDefault();
-
-  let content = event.target.nextElementSibling;
+  let content = event.currentTarget.nextElementSibling;
 
   /* Close other dropdowns */
   document.querySelectorAll(".dropdown-content").forEach(el => {

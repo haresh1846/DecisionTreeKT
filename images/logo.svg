@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Decision Tree Journal logo">
+  <rect width="120" height="120" rx="16" fill="#154c8a"/>
+  <circle cx="60" cy="28" r="10" fill="#ffffff"/>
+  <circle cx="30" cy="64" r="8" fill="#ffffff"/>
+  <circle cx="60" cy="64" r="8" fill="#ffffff"/>
+  <circle cx="90" cy="64" r="8" fill="#ffffff"/>
+  <circle cx="20" cy="96" r="7" fill="#ffffff"/>
+  <circle cx="40" cy="96" r="7" fill="#ffffff"/>
+  <circle cx="60" cy="96" r="7" fill="#ffffff"/>
+  <circle cx="80" cy="96" r="7" fill="#ffffff"/>
+  <circle cx="100" cy="96" r="7" fill="#ffffff"/>
+  <line x1="60" y1="38" x2="30" y2="56" stroke="#ffffff" stroke-width="4"/>
+  <line x1="60" y1="38" x2="60" y2="56" stroke="#ffffff" stroke-width="4"/>
+  <line x1="60" y1="38" x2="90" y2="56" stroke="#ffffff" stroke-width="4"/>
+  <line x1="30" y1="72" x2="20" y2="88" stroke="#ffffff" stroke-width="3"/>
+  <line x1="30" y1="72" x2="40" y2="88" stroke="#ffffff" stroke-width="3"/>
+  <line x1="60" y1="72" x2="60" y2="88" stroke="#ffffff" stroke-width="3"/>
+  <line x1="90" y1="72" x2="80" y2="88" stroke="#ffffff" stroke-width="3"/>
+  <line x1="90" y1="72" x2="100" y2="88" stroke="#ffffff" stroke-width="3"/>
+</svg>
