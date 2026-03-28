@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Paper - Decision Tree Journal</title>
+<meta name="description" content="Read the abstract and details for Machine Learning for Solar Optimization.">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -27,35 +28,43 @@
   </div>
 </header>
 
+<section class="utility-bar">
+  <div class="utility-container">
+    <span class="utility-item"><span class="utility-dot"></span>Email: support@decisiontreekt.com</span>
+    <span class="utility-item"><span class="utility-dot"></span>Next Submission Deadline: 30 June 2026</span>
+    <span class="utility-item"><span class="utility-dot"></span>Call for Papers: AI for Sustainable Systems</span>
+  </div>
+</section>
+
 <!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-container">
 
     <!-- Hamburger -->
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">
       &#9776;
-    </div>
+    </button>
 
     <!-- Links -->
     <div class="nav-links" id="navLinks">
 
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
 
       <!-- DROPDOWN -->
       <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(event)">
+        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">
           Journal ▼
-        </a>
+        </button>
 
         <div class="dropdown-content">
-          <a href="index.html">Current Issue</a>
+          <a href="index.html" class="active">Current Issue</a>
           <a href="archives.html">Archives</a>
           <a href="editorial.html">Editorial Board</a>
         </div>
       </div>
 
       <a href="search.html">Search</a>
-      <a href="submit.html">Submit Paper</a>
+      <a href="submit.html" class="nav-cta">Submit Paper</a>
       <a href="contact.html">Contact</a>
 
     </div>
@@ -63,15 +72,38 @@
   </div>
 </nav>
 
+<section class="publication-strip">
+  <div class="publication-badges">
+    <span>ISSN: 2583-0000 (Online)</span>
+    <span>DOI Prefix: 10.1000/ktj</span>
+    <span>Open Access Journal</span>
+  </div>
+</section>
+
+<section class="breadcrumb-wrap" aria-label="Breadcrumb">
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="search.html">Papers</a>
+    <span class="sep">/</span>
+    <span>Paper Details</span>
+  </nav>
+</section>
+
 <!-- ===== MAIN ===== -->
 <main class="container">
 
-<div class="card">
+<section class="article-layout">
 
-<h1>Machine Learning for Solar Optimization</h1>
+<div class="card article-main">
 
-<div class="meta">
-Authors: John Doe | DOI: 10.1000/ktj.001
+<h1 class="page-title">Machine Learning for Solar Optimization</h1>
+
+<div class="meta-row">
+  <span class="meta-pill"><span class="meta-label">Author:</span><span class="meta-value">John Doe</span></span>
+  <span class="meta-pill"><span class="meta-label">DOI:</span><span class="meta-value">10.1000/ktj.001</span></span>
+  <span class="meta-pill"><span class="meta-label">Article Type:</span><span class="meta-value">Research Article</span></span>
+  <span class="meta-pill"><span class="meta-label">Access:</span><span class="meta-value">Open Access</span></span>
 </div>
 
 <h3>Abstract</h3>
@@ -81,17 +113,54 @@ This paper explores advanced machine learning models for optimizing solar energy
 
 <br>
 
-<a href="papers/paper-001.pdf" target="_blank">
-<button>Download Full Paper</button>
-</a>
+<a href="papers/paper-001.pdf" target="_blank" rel="noopener noreferrer" class="btn">Download Full Paper</a>
 
 </div>
+
+<aside class="card article-aside">
+  <h3 class="aside-title">Article Timeline</h3>
+  <ul class="info-list">
+    <li><b>Received:</b> 12 Jan 2026</li>
+    <li><b>Revised:</b> 04 Mar 2026</li>
+    <li><b>Accepted:</b> 18 Mar 2026</li>
+    <li><b>Published:</b> 02 Apr 2026</li>
+  </ul>
+
+  <h3 class="aside-title">Keywords</h3>
+  <div class="keyword-list">
+    <span class="keyword-tag">Machine Learning</span>
+    <span class="keyword-tag">Solar Energy</span>
+    <span class="keyword-tag">Optimization</span>
+    <span class="keyword-tag">Predictive Models</span>
+  </div>
+
+  <h3 class="aside-title" style="margin-top:14px;">Article Metrics</h3>
+  <ul class="info-list">
+    <li><b>Views:</b> 1,248</li>
+    <li><b>Downloads:</b> 312</li>
+    <li><b>Citations:</b> 8</li>
+  </ul>
+
+  <div class="citation-box">
+    <b>Suggested Citation:</b><br>
+    Doe, J. (2026). Machine Learning for Solar Optimization. Decision Tree Journal, 1(1). https://doi.org/10.1000/ktj.001
+  </div>
+</aside>
+
+</section>
 
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-© 2026 Decision Tree Journal | All Rights Reserved
+  <div class="footer-links">
+    <a href="about.html">About Journal</a>
+    <a href="ethics.html">Publication Ethics</a>
+    <a href="open-access.html">Open Access Policy</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+  <p class="footer-copy">© 2026 Decision Tree Journal | All Rights Reserved</p>
 </footer>
 
 <!-- ===== SCRIPT ===== -->
@@ -101,17 +170,34 @@ This paper explores advanced machine learning models for optimizing solar energy
 function toggleMenu() {
   let menu = document.getElementById("navLinks");
   menu.classList.toggle("show");
+  let btn = document.querySelector(".menu-toggle");
+  btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
 }
 
 /* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
-  event.preventDefault();
-
-  let dropdown = event.target.parentElement;
-  let content = dropdown.querySelector(".dropdown-content");
-
+  let content = event.currentTarget.nextElementSibling;
+  let toggle = event.currentTarget;
+  document.querySelectorAll(".dropdown-content").forEach(el => {
+    if (el !== content) el.classList.remove("show-dropdown");
+  });
+  document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+    if (btn !== toggle) btn.setAttribute("aria-expanded", "false");
+  });
   content.classList.toggle("show-dropdown");
+  toggle.setAttribute("aria-expanded", content.classList.contains("show-dropdown") ? "true" : "false");
 }
+
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach(el => {
+      el.classList.remove("show-dropdown");
+    });
+    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
+});
 
 </script>
 

@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Decision Tree Journal</title>
-<meta name="description" content="Open Access Journal for Applied Machine Learning Research">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Journal - Decision Tree Journal</title>
+  <meta name="description" content="About Decision Tree Journal and its mission in applied machine learning research.">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- ===== HEADER ===== -->
 <header>
   <div class="header-container">
     <div class="logo-box">
@@ -33,39 +28,23 @@
   </div>
 </section>
 
-<!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-container">
-
-    <!-- Hamburger -->
-    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">
-      &#9776;
-    </button>
-
-    <!-- Links -->
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
     <div class="nav-links" id="navLinks">
-
-      <a href="index.html" class="active">Home</a>
-
-      <!-- DROPDOWN -->
+      <a href="index.html">Home</a>
       <div class="dropdown">
-        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">
-          Journal ▼
-        </button>
-
+        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">Journal ▼</button>
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
           <a href="archives.html">Archives</a>
           <a href="editorial.html">Editorial Board</a>
         </div>
       </div>
-
       <a href="search.html">Search</a>
       <a href="submit.html" class="nav-cta">Submit Paper</a>
       <a href="contact.html">Contact</a>
-
     </div>
-
   </div>
 </nav>
 
@@ -77,73 +56,22 @@
   </div>
 </section>
 
-<!-- ===== MAIN CONTENT ===== -->
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <h2>Advancing Global Research in Applied Machine Learning</h2>
-  <p>Publish rigorously reviewed research across AI, Data Science, and real-world machine learning systems.</p>
-
-  <a href="submit.html" class="btn">Submit Your Paper</a>
+<section class="breadcrumb-wrap" aria-label="Breadcrumb">
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <span>About Journal</span>
+  </nav>
 </section>
 
-<!-- FEATURES -->
-<section class="features container">
-
-  <div class="feature-box">
-    <h3><span class="icon-chip">OA</span>Open Access</h3>
-    <p>All published papers are freely accessible worldwide.</p>
+<main class="container">
+  <div class="card">
+    <h1 class="page-title">About Decision Tree Journal</h1>
+    <p>Decision Tree Journal is an open access scholarly platform focused on high-quality research in machine learning, data science, and applied artificial intelligence.</p>
+    <p>Our mission is to support global knowledge sharing through transparent editorial standards, peer review, and responsible publication practices.</p>
   </div>
-
-  <div class="feature-box">
-    <h3><span class="icon-chip">PR</span>Peer Reviewed</h3>
-    <p>All submissions undergo quality review and validation.</p>
-  </div>
-
-  <div class="feature-box">
-    <h3><span class="icon-chip">FP</span>Fast Publication</h3>
-    <p>Efficient editorial workflow from submission to publication.</p>
-  </div>
-
-</section>
-
-<!-- CURRENT ISSUE -->
-<section class="container">
-
-<h2 class="section-title">Current Issue - Volume 1, Issue 1</h2>
-
-<div class="paper" data-category="ml">
-<h2 class="paper-title">
-  <a href="paper1.html">Machine Learning for Solar Optimization</a>
-</h2>
-
-<div class="meta-row">
-  <span class="meta-pill"><span class="meta-label">Author:</span><span class="meta-value">John Doe</span></span>
-  <span class="meta-pill"><span class="meta-label">DOI:</span><span class="meta-value">10.1000/ktj.001</span></span>
-  <span class="meta-pill"><span class="meta-label">Type:</span><span class="meta-value">Research Article</span></span>
-</div>
-
-<div class="abstract">
-This paper explores machine learning models for optimizing solar energy systems.
-</div>
-
-<a href="paper1.html" class="btn">View Paper</a>
-</div>
-
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Ready to Publish Your Research?</h2>
-  <p>Submit your paper today and get published in our journal.</p>
-
-  <a href="submit.html" class="btn">Submit Now</a>
-</section>
-
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-links">
     <a href="about.html">About Journal</a>
@@ -155,10 +83,7 @@ This paper explores machine learning models for optimizing solar energy systems.
   <p class="footer-copy">© 2026 Decision Tree Journal | All Rights Reserved</p>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
-
-/* HAMBURGER MENU */
 function toggleMenu() {
   let menu = document.getElementById("navLinks");
   menu.classList.toggle("show");
@@ -166,7 +91,6 @@ function toggleMenu() {
   btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
 }
 
-/* DROPDOWN CLICK (MOBILE) */
 function toggleDropdown(event) {
   let content = event.currentTarget.nextElementSibling;
   let toggle = event.currentTarget;
@@ -190,8 +114,6 @@ document.addEventListener("click", function(e) {
     });
   }
 });
-
 </script>
-
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Search Papers - Decision Tree Journal</title>
+<meta name="description" content="Search Decision Tree Journal papers by title and research category.">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +16,7 @@
 <header>
   <div class="header-container">
     <div class="logo-box">
-      <img src="images/logo.png" class="logo" alt="Logo">
+      <img src="images/logo.png" class="logo" alt="Decision Tree Logo">
     </div>
     <div>
       <h1>Decision Tree Journal</h1>
@@ -24,14 +25,22 @@
   </div>
 </header>
 
+<section class="utility-bar">
+  <div class="utility-container">
+    <span class="utility-item"><span class="utility-dot"></span>Email: support@decisiontreekt.com</span>
+    <span class="utility-item"><span class="utility-dot"></span>Next Submission Deadline: 30 June 2026</span>
+    <span class="utility-item"><span class="utility-dot"></span>Call for Papers: AI for Sustainable Systems</span>
+  </div>
+</section>
+
 <!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-container">
 
     <!-- Hamburger -->
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu()">
       &#9776;
-    </div>
+    </button>
 
     <!-- Links -->
     <div class="nav-links" id="navLinks">
@@ -40,9 +49,9 @@
 
       <!-- DROPDOWN FIXED -->
       <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(event)">
+        <button class="dropdown-toggle" type="button" aria-label="Toggle journal menu" aria-expanded="false" onclick="toggleDropdown(event)">
           Journal ▼
-        </a>
+        </button>
 
         <div class="dropdown-content">
           <a href="index.html">Current Issue</a>
@@ -52,7 +61,7 @@
       </div>
 
       <a href="search.html" class="active">Search</a>
-      <a href="submit.html">Submit Paper</a>
+      <a href="submit.html" class="nav-cta">Submit Paper</a>
       <a href="contact.html">Contact</a>
 
     </div>
@@ -60,16 +69,32 @@
   </div>
 </nav>
 
+<section class="publication-strip">
+  <div class="publication-badges">
+    <span>ISSN: 2583-0000 (Online)</span>
+    <span>DOI Prefix: 10.1000/ktj</span>
+    <span>Open Access Journal</span>
+  </div>
+</section>
+
+<section class="breadcrumb-wrap" aria-label="Breadcrumb">
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <span>Search</span>
+  </nav>
+</section>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
   <h2>Search Research Papers</h2>
-  <p>Find papers by title and category.</p>
+  <p>Discover peer-reviewed articles by title, topic, and research category.</p>
 </section>
 
 <!-- ===== MAIN ===== -->
 <main class="container">
 
-<h2>Search Papers</h2>
+<h2 class="section-title">Search Papers</h2>
 
 <!-- SEARCH BOX -->
 <div class="search-box">
@@ -96,40 +121,49 @@ No papers found.
   <a href="paper1.html">Machine Learning for Solar Optimization</a>
 </h2>
 
-<div class="meta">
-Authors: John Doe | DOI: 10.1000/ktj.001
+<div class="meta-row">
+  <span class="meta-pill"><span class="meta-label">Author:</span><span class="meta-value">John Doe</span></span>
+  <span class="meta-pill"><span class="meta-label">DOI:</span><span class="meta-value">10.1000/ktj.001</span></span>
+  <span class="meta-pill"><span class="meta-label">Type:</span><span class="meta-value">Research Article</span></span>
 </div>
 
 <div class="abstract">
 This paper explores machine learning models for optimizing solar energy systems.
 </div>
 
-<a href="paper1.html">
-<button>View Paper</button>
-</a>
+<a href="paper1.html" class="btn">View Paper</a>
 </div>
 
 <div class="paper" data-category="ai">
 <h2 class="paper-title">
-  <a href="#">AI in Healthcare Prediction</a>
+  <span>AI in Healthcare Prediction</span>
 </h2>
 
-<div class="meta">
-Authors: Jane Smith
+<div class="meta-row">
+  <span class="meta-pill"><span class="meta-label">Author:</span><span class="meta-value">Jane Smith</span></span>
+  <span class="meta-pill"><span class="meta-label">Status:</span><span class="meta-value">Coming Soon</span></span>
+  <span class="meta-pill"><span class="meta-label">Type:</span><span class="meta-value">Research Preview</span></span>
 </div>
 
 <div class="abstract">
 AI models for predicting diseases and improving healthcare outcomes.
 </div>
 
-<button>Coming Soon</button>
+<button disabled aria-disabled="true">Coming Soon</button>
 </div>
 
 </main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-© 2026 Decision Tree Journal | All Rights Reserved
+  <div class="footer-links">
+    <a href="about.html">About Journal</a>
+    <a href="ethics.html">Publication Ethics</a>
+    <a href="open-access.html">Open Access Policy</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+  <p class="footer-copy">© 2026 Decision Tree Journal | All Rights Reserved</p>
 </footer>
 
 <!-- ===== SCRIPT ===== -->
@@ -137,21 +171,27 @@ AI models for predicting diseases and improving healthcare outcomes.
 
 /* HAMBURGER */
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("show");
+  let menu = document.getElementById("navLinks");
+  menu.classList.toggle("show");
+  let btn = document.querySelector(".menu-toggle");
+  btn.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
 }
 
 /* DROPDOWN CLICK */
 function toggleDropdown(event) {
-  event.preventDefault();
-
-  let content = event.target.nextElementSibling;
+  let content = event.currentTarget.nextElementSibling;
+  let toggle = event.currentTarget;
 
   /* Close other dropdowns */
   document.querySelectorAll(".dropdown-content").forEach(el => {
     if (el !== content) el.classList.remove("show-dropdown");
   });
+  document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+    if (btn !== toggle) btn.setAttribute("aria-expanded", "false");
+  });
 
   content.classList.toggle("show-dropdown");
+  toggle.setAttribute("aria-expanded", content.classList.contains("show-dropdown") ? "true" : "false");
 }
 
 /* CLOSE DROPDOWN WHEN CLICK OUTSIDE */
@@ -159,6 +199,9 @@ document.addEventListener("click", function(e) {
   if (!e.target.closest(".dropdown")) {
     document.querySelectorAll(".dropdown-content").forEach(el => {
       el.classList.remove("show-dropdown");
+    });
+    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
     });
   }
 });
@@ -190,7 +233,7 @@ function applyFilters() {
 }
 
 /* EVENTS */
-document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+document.getElementById("searchInput").addEventListener("input", applyFilters);
 document.getElementById("filterCategory").addEventListener("change", applyFilters);
 
 </script>
